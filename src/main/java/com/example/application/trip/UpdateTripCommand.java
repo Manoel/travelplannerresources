@@ -1,41 +1,34 @@
-package com.example.query.model.trip;
+package com.example.application.trip;
 
 import java.util.Date;
 
-import com.example.query.model.QueryModel;
+import javax.validation.constraints.NotNull;
 
-public class TripQueryModel implements QueryModel {
+public class UpdateTripCommand {
 	
+	@NotNull
 	private String id;
 	
+	@NotNull
 	private String destination;
 	
+	@NotNull
 	private Date start;
 	
+	@NotNull
 	private Date end;
 	
+	@NotNull
 	private String comment;
-	
-	private String user;
-	
-	public TripQueryModel(String id, String destination, Date start, Date end, String comment, String user) {
-		super();
-		this.id = id;
-		this.destination = destination;
-		this.start = start;
-		this.end = end;
-		this.comment = comment;
-		this.user = user;
-	}
-	
+
 	public String getId() {
 		return id;
 	}
-	
+
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
 	public String getDestination() {
 		return destination;
 	}
@@ -67,14 +60,8 @@ public class TripQueryModel implements QueryModel {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-
-	public String getUser() {
-		return user;
-	}
-
-	public void setUser(String user) {
-		this.user = user;
-	}
+	
+	
 	
 
 }
