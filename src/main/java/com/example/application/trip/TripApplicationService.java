@@ -28,13 +28,20 @@ public class TripApplicationService {
 	}
 
 	@Transactional
+	public void add(AddTripCommand cmd) {
+		Trip trip = new Trip(cmd.getDestination(), cmd.getStart(), cmd.getEnd(), cmd.getComment(), cmd.getUserId());
+		repository.add(trip);
+	}
+
+	@Transactional
 	public void update(UpdateTripCommand cmd) {
-		Trip trip = new Trip(cmd.getId(), cmd.getDestination(), cmd.getStart(), cmd.getEnd(), cmd.getComment());
+		Trip trip = new Trip(cmd.getId(), cmd.getDestination(), cmd.getStart(), cmd.getEnd(), cmd.getComment(),
+				cmd.getUserId());
 		repository.update(trip);
 	}
-	
+
 	@Transactional
-	public void remove(TripId tripId) {		
+	public void remove(TripId tripId) {
 		repository.remove(tripId);
 	}
 

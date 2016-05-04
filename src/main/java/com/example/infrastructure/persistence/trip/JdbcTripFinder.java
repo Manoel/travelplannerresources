@@ -31,8 +31,8 @@ public class JdbcTripFinder extends JdbcDaoSupport implements TripFinder {
 		TripQueryMetaData queryMetaData = new TripQueryMetaData(filter);
 
 		String query = "SELECT T.ID ID, T.DESTINATION DESTINATION, "
-				+ "T.START_DATE START_DATE, T.END_DATE END_DATE, "
-				+ "T.COMMENT COMMENT, U.EMAIL EMAIL " 
+				+ "TO_CHAR(T.START_DATE, 'YYYY-MM-DD') START_DATE, TO_CHAR(T.END_DATE, 'YYYY-MM-DD') END_DATE, "
+				+ "T.COMMENT COMMENT, U.EMAIL EMAIL, U.ID USER_ID " 
 				+ "FROM TRAVELPLANNER.TRIP T INNER JOIN TRAVELPLANNER.USER U "
 				+ "ON T.USER_ID = U.ID " + queryMetaData.getWhereClause()
 				+ "ORDER BY T.DESTINATION, T.START_DATE DESC LIMIT " + limit + " OFFSET " + offset;

@@ -6,6 +6,8 @@ import javax.validation.constraints.NotNull;
 
 public class UpdateTripCommand {
 	
+//	private static DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+	
 	@NotNull
 	private String id;
 	
@@ -20,6 +22,9 @@ public class UpdateTripCommand {
 	
 	@NotNull
 	private String comment;
+	
+	@NotNull 
+	private String userId;
 
 	public String getId() {
 		return id;
@@ -61,7 +66,27 @@ public class UpdateTripCommand {
 		this.comment = comment;
 	}
 	
+	public String getUserId() {
+		return userId;
+	}
 	
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 	
-
+//	public Date getStartDate() {
+//		return parseDate(getStart());
+//	}
+//	
+//	public Date getEndDate() {
+//		return parseDate(getEnd());
+//	}
+//	
+//	private Date parseDate(String date) {
+//		try {
+//			return df.parse(getStart());
+//		} catch (ParseException e) {
+//			throw new RuntimeException(e);
+//		}
+//	}	
 }

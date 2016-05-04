@@ -18,17 +18,22 @@ public class Trip extends Entity<TripId> {
 
 	private UserId userId;
 
-	public Trip(String id, String destination, Date start, Date end, String comment, UserId userId) {
+	public Trip(String id, String destination, Date start, Date end, String comment, String userId) {
 		super(new TripId(UUID.fromString(id)));
 		this.destination = destination;
 		this.start = start;
 		this.end = end;
 		this.comment = comment;
-		this.userId = userId;
+		this.userId = new UserId(UUID.fromString(userId));
 	}
 	
+	//TODO: it does not make sense user id null
 	public Trip(String id, String destination, Date start, Date end, String comment) {
 		this(id, destination, start, end, comment, null);
+	}
+
+	public Trip(String destination, Date start, Date end, String comment, String userId) {
+		this(UUID.randomUUID().toString(), destination, start, end, comment, userId);
 	}
 
 	public String getDestination() {

@@ -2,7 +2,6 @@ package com.example.infrastructure.persistence.trip;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
 
 import org.springframework.jdbc.core.RowMapper;
 
@@ -17,15 +16,17 @@ public class TripQueryModelRowMapper implements RowMapper<TripQueryModel> {
 		
 		String destination = resultSet.getString("DESTINATION");
 
-		Date start = resultSet.getDate("START_DATE");
+		String start = resultSet.getString("START_DATE");
 
-		Date end = resultSet.getDate("END_DATE");
+		String end = resultSet.getString("END_DATE");
 
 		String comment = resultSet.getString("COMMENT");
 
 		String email = resultSet.getString("EMAIL");
+		
+		String user_id = resultSet.getString("USER_ID");
 
-		return new TripQueryModel(id, destination, start, end, comment, email);
+		return new TripQueryModel(id, destination, start, end, comment, user_id, email);
 	}
 
 }

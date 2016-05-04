@@ -1,7 +1,5 @@
 package com.example.query.model.trip;
 
-import java.util.Date;
-
 import com.example.query.model.QueryModel;
 
 public class TripQueryModel implements QueryModel {
@@ -10,22 +8,25 @@ public class TripQueryModel implements QueryModel {
 	
 	private String destination;
 	
-	private Date start;
+	private String start;
 	
-	private Date end;
+	private String end;
 	
 	private String comment;
 	
-	private String user;
+	private String userId;
 	
-	public TripQueryModel(String id, String destination, Date start, Date end, String comment, String user) {
+	private String email;
+	
+	public TripQueryModel(String id, String destination, String start, String end, String comment, String userId, String email) {
 		super();
 		this.id = id;
 		this.destination = destination;
 		this.start = start;
 		this.end = end;
 		this.comment = comment;
-		this.user = user;
+		this.userId = userId;
+		this.email = email;
 	}
 	
 	public String getId() {
@@ -44,19 +45,19 @@ public class TripQueryModel implements QueryModel {
 		this.destination = destination;
 	}
 
-	public Date getStart() {
+	public String getStart() {
 		return start;
 	}
 
-	public void setStart(Date start) {
+	public void setStart(String start) {
 		this.start = start;
 	}
 
-	public Date getEnd() {
+	public String getEnd() {
 		return end;
 	}
 
-	public void setEnd(Date end) {
+	public void setEnd(String end) {
 		this.end = end;
 	}
 
@@ -67,13 +68,21 @@ public class TripQueryModel implements QueryModel {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-
-	public String getUser() {
-		return user;
+	
+	public String getUserId() {
+		return userId;
+	}
+	
+	public void setUserID(String userId) {
+		this.userId = userId;
 	}
 
-	public void setUser(String user) {
-		this.user = user;
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 
